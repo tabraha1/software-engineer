@@ -69,38 +69,43 @@
 - Reuseability
     * should this a common component or module
 
-## General Principles
+## Acceptance Criteria
 
-- The reason it all exists
-- Keep it simple, stupid!
-- Maintain the vision
-- What you produce, other will consume
-- Be open to the future
-- Plan ahead for reuse
-- Think!
+- What is an AC
+    * helps define when a user story is done (or complete—hence, you say the story is complete)
+    * at the end of the sprint, the demonstration is to show that the criteria are complete
+    * acceptance criteria do not need to be an exhaustive list
+    * just like the user story, the acceptance criteria can change with time, can even be refined during the sprint
+- What makes good acceptance criteria?
+    * clear pass/fail result (no partial results)
+    * can contain both functional and nonfunctional requirements
+    * clear and without ambiguity
+    * should be implementation independent
 
-## Personal Software Process
+## Defining Components
 
-- Planning
-- High-level design
-- High-level design review
-- Development
-- Postmortem
+- Setup/Initial work
+- Configuration
+- Validation
+- Is it reusable?
+- Can we make a common modules?
+- What if there’s an error?
+- what sort of error will result
+- What sort of error messages do you get?
+- What’s the most practical, useful, usable, and satisfying solutions
+- What will testing look like?
+- How can we demo/test this?
+- Use real service or do we have to use a mock?
+- Are there any soft or hard dependencies?
 
-## Agility Principles
+## Cross-cutting concerns
 
-- Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
-- Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
-- Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
-- Business people and developers must work together daily throughout the project.
-- Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
-- The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
-- Working software is the primary measure of progress.
-- Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
-- Continuous attention to technical excellence and good design enhances agility.
-- Simplicity--the art of maximizing the amount of work not done--is essential.
-- The best architectures, requirements, and designs emerge from self-organizing teams.
-- At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+1. caching
+    - a technically motivated cross-cutting concern once applications face issues in performance
+    - such as 
+        - slow external systems, 
+        - expensive and cachable calculations 
+        - huge amount of data
 
 ## Industrial Extreme Programming 
 
