@@ -75,15 +75,43 @@
 ## Acceptance Criteria
 
 - What is an AC
-    * helps define when a user story is done (or complete—hence, you say the story is complete)
+    * helps define user story as complete
     * at the end of the sprint, the demonstration is to show that the criteria are complete
     * acceptance criteria do not need to be an exhaustive list
     * just like the user story, the acceptance criteria can change with time, can even be refined during the sprint
-- What makes good acceptance criteria?
+- What makes good AC?
     * clear pass/fail result (no partial results)
     * can contain both functional and nonfunctional requirements
     * clear and without ambiguity
     * should be implementation independent
+    
+ - Top Mistakes:
+    * Too formal or too much detail: 
+        * good information is not lost, but it does not complicate the user story 
+        * detailed story during the sprint planning, might see all the details are present and may skip the detailed conversation
+        * communication is the central point of the user story, so do not do anything that will limit or restrict it
+    * Technical tasks masquerading as stories: 
+        * if some stories are just technical tasks, you may not end up with working code at the end of the sprint. 
+        * this may be fixed by making it a spike
+    * Skipping the conversation: 
+        * if you skip the ac conversation, you move in  wrong direction, miss boundary cases, overlook customer needs
+
+## Grooming backlog
+
+   - making sure that high priority items are floated to the top and not getting buried
+   - important as you and your team approach the start of a new sprint
+   
+   - newly added issues go to the bottom by default
+   - To prioritize issues in your backlog, you simply move the high priority issues up and move the low priority issues down
+   - right-click the issue you want to move and select the Top of Backlog option
+   - hold down the Shift or Ctrl key on your keyboard for multiple issues
+   
+   - flag issues that are important or require special attention, which is done by right-clicking an issue and selecting the Add flag option
+   - display the labels that have been added to issues such as technical acceptance or tech debt
+   - create custom hyperlinks for issues or UX specs
+   - issue A might be blocking issue B, or issue C might be a duplicate of issue D
+   - add descriptions to the issue to convey this information, or delete one of the issues in the case of duplication
+   - When an issue is being cloned, a Clone link is automatically created between the two issues, establishing a relationship
 
 ## Defining Components
 
