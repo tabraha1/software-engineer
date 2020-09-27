@@ -19,8 +19,8 @@
 
 ## Estimating Effort - Complexity
 
- **what are you most concerned about?**
- **what seems more complicated?**
+ *what are you most concerned about?*
+ *what seems more complicated?*
  
 - Obvious/simple/clear
     * Solution is evident to all
@@ -100,7 +100,37 @@
 
 ## Cross-cutting concerns
 
-1. caching
+# There are two main types of concerns in a software system (they can intersect too):
+  - Core concern: 
+    * functionality fundamental to the system 
+        * ex. the logic related to the calculation of employee salaries is core concerns of a HR system
+    * The logic for each core concern is typically localized to particular components.
+  - Cross-cutting concern: 
+    * functionality that is used in multiple areas, possibly spanning multiple layers of the application
+    * security, logging, caching, and error handling
+
+1. Synchronous request
+    - when a client makes a synchronous request, it waits for a response
+    - a request-reply pattern is used to handle synchronous requests
+2. Asynchronous request (message queue)
+    - to process requests asynchronously, the publish-subscribe pattern can be used
+3. Exception management
+    - can be handled in a centralized and consistent way
+    - common boilerplate code to perform operations - logging of exceptions and communicating an exception occurred back to user
+    - Failures in the application should not leave it in an unstable state or corrupt data
+    - should be logged as the information may be helpful in resolving an issue
+    - sensitive information should not be revealed
+4. Logging
+    - Date/time: imperative to know when the event took place
+    - Source: the source/location of the event
+    - Log Level/Severity: the level/severity of the log entry
+    - Message: description or detail explaining the log entry
+5. Auditing
+    - cross-cutting concern of many software applications is the auditing of data changing operations
+    - ex. date/time that it occurred and the identity of the individual who made the change
+    - may have requirement to record information about nature of data change, such as the old and new values
+    - in event-driven systems, persisting events and their details can serve as the audit trail
+4. caching
     - What:
         - a technically motivated cross-cutting concern once applications face issues in performance:
             - slow external systems, 
@@ -116,6 +146,11 @@
         - for example, if database operations are too slow, it is advisable to consider whether other means, such as indexing, can help
     - How:
         - The most straightforward way of caching information is in a single place in the application
+ 5. Auditing
+    - cross-cutting concern of many software applications is the auditing of data changing operations
+    - ex. date/time that it occurred and the identity of the individual who made the change
+    - may have requirement to record information about nature of data change, such as the old and new values
+    - in event-driven systems, persisting events and their details can serve as the audit trail
       
 ## Database Migrations
 
@@ -141,43 +176,6 @@
         - This approach, for example, used by the Ruby on Rails framework, means that we can migrate up (from v1 to v2) and down (from v2 to v1). It allows the database schema to roll back, which may sometimes end up in data loss (if the migration is logically irreversible)
     * Upgrade only: 
         - This approach, for example, used by the Flyway tool, only allows us to migrate up (from v1 to v2). In many cases, the database updates are not reversible, for example, removing a table from the database. Such a change cannot be rolled back because even if we recreate the table, we have already lost all the data.
-   
-## Code reviews
-
-- UNDERSTANDABILITY
-    * Use solution/problem domain names.
-    * Use intention-revealing names.
-    * Minimize the accessibility of classes and members.
-    * Minimize the size of classes and methods.
-    * Minimize the scope of local variables.
-    * Don’t Repeat Yourself (DRY) within a single logical component (a package, module, or service).
-    * Explain yourself in code.
-    * Use exceptions rather than esoteric error codes and don’t return null.
- - LANGUAGE-SPECIFIC ISSUES
-    * Use checked exceptions for recoverable conditions and runtime exceptions for programming errors.
-    * Check parameters for validity as close to their specification or associated user input as possible.
-    * Indicate which parameters can be null.
-    * In public classes, use accessor methods, not public fields.
-    * Refer to objects by their interfaces.
-    * Use enums instead of int constants.
-    * Use marker interfaces to define types.
-    * Synchronize access to shared mutable data.
-    * Prefer executors to tasks and threads.
-    * Document thread safety.
-- SECURITY
-    * Input into a system should be checked for valid data size and range, and always sanitize any input that will be supplied to a data store, middleware, or third-party system.
-    * Do not log highly sensitive information.
-    * Purge sensitive information from exceptions (e.g., do not expose file paths, internals of the system, or configuration).
-    * Consider purging highly sensitive data from memory after use.
-    * Follow the principle of least privilege (e.g., run an application with the least privilege mode required for the correct functioning).
-    * Document security-related information.
- - PERFORMANCE
-    * Watch for inefficient algorithms (e.g., unnecessary multiple loops).
-    * Avoid creating unnecessary objects.
-    * Beware of the performance penalty of string concatenation.
-    * Avoid excessive synchronization and keep synchonized blocks as small as practical.
-    * Watch for potential deadlocks or livelocks in algorithms.
-    * Ensure that thread-pool configuration and caching is configured correctly.
     
 ## Building binaries
     
