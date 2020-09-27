@@ -179,7 +179,41 @@
     * Watch for potential deadlocks or livelocks in algorithms.
     * Ensure that thread-pool configuration and caching is configured correctly.
     
-   
+**Building binaries
+    
+   - What:
+    * the packaged enterprise application in form of an archive
+    * includes required dependencies, compile Java sources, and packaged binary classes and other files
+    * build systems can publish the artifacts onto an artifact repository 
+    * artifact repositories, such as Sonatype Nexus or JFrog Artifactory, save the built artifact versions for later retrieval
+   - Why:
+    * so that the build pupelines may automatically deploy build artifiacts to test, staging, and prod environments
+   - How:
+    * built using build systems such as Maven or Gradle, which are installed and executed on the CI server
+   - Steps:
+        * built using Maven via the command 'mvn package'
+        * package phase compiles source, compiles and executes the test sources, and packages the application to a WAR file
+        * CI server executes a build system command similar to this to build the artifact in its local workspace directory 
+        * artifact can be deployed to an artifact repository using the 'mvn deploy' command,
+        * or it will be taken directly from the workspace directory
 
-
+ **UI PATTERN: VALIDATION FEEDBACK
  
+   - What:
+    * ex. a warning or suggestion, an error preventing further progress until it’s been fixed, or confirmation that the data was complete and correct
+    * validation feedback can indicate 
+        * a warning - lets the user continue at their own peril
+        * an error - prevents any further progress until it’s been corrected
+        * a soft confirmation - encouraging further action to be taken to finish the process
+        * a confirmation - assures the user that their work is done
+   - Why:    
+    * validation feedback pattern increases user’s confidence to the right action (positive feedback) or help them recover from errors (negative feedback)    
+   - How:
+    * underappreciated form of feedback is a gentle suggestion that hints at better steps rather than prevents further progress
+    * Ex. inspecting phone numbers:
+        * validating international phone numbers is a notoriously difficult task due variation and formatting
+        * when asking for optional phone number, include a validation warning or suggestion when user provides a wrong number 
+        * encouraging the visitor to check it, but avoid showing a validation error that prevents task completion
+        * visitor proceeds with badly formatted phone number, but were prompted to check it twice for their own benefit
+        * For example, consider this message: *Enter your phone number to help fast delivery of your order.*
+    
