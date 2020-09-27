@@ -52,22 +52,25 @@
 ## Additional Concerns
 
 - Accuracy
-    * is it testable (write test cases from the AC)
-    * is title, description, and AC clear and precise
-    * is it hiding additonal work
-    * do you understand the story enough to do it yourself
+    - is it testable (write test cases from the AC)
+    - is title, description, and AC clear and precise
+    - is it hiding additonal work
+    -    *Are we accounting for that work?*
+    - do you understand the story enough to do it yourself
 - Atomic
-    * is it small
-    * how can we break this down further into smaller stories? Should we?
+    - *What’s the simplest portion we can start on?*
+    - how can we break this down further into smaller stories? Should we?
+    - *Do we still feel like that’s two points worth of work? Or do we feel that this changes things at all?*
 - Dependencies
-    * does it require UX input
-    * does it require another team's input or component they own
-    * should be bring it up in the group discussion
+    - does it require UX input
+    - does it require another team's input or component they own
+    - should be bring it up in the group discussion
 - Testability
-    * how can we test/demo this? Storybook
-    * does it require technical acceptance
-- Reuseability
-    * should this a common component or module
+    - how can we test/demo this? Storybook
+    - can the BA test this? does it require technical acceptance
+- Additions
+    - is there tech debt we need to refine?
+    - well are there any known bugs
 
 ## Acceptance Criteria
 
@@ -84,23 +87,37 @@
 
 ## Defining Components
 
-- Setup/Initial work
-- Configuration
-- Validation
-- Is it reusable?
-- Can we make a common modules?
-- What if there’s an error?
-- what sort of error will result
-- What sort of error messages do you get?
-- What’s the most practical, useful, usable, and satisfying solutions
-- What will testing look like?
-- How can we demo/test this?
-- Use real service or do we have to use a mock?
-- Are there any soft or hard dependencies?
+- UI
+  - User navigation (forward/backward)
+    * *How does the user know the task was complete*
+    * any validation error/confirmation
+  - *Do need to make a common component for that?*
+  - *Does it need to configurable for certain things?*
+    * *Are we accounting for that work?*
+    * *It’ll be more complicated if we make it configurable. Do we need to necessarily do that right now?*
+  - *Any work around validation?*
+    * *Is it complicated? Are we saying the only validation is checkbox is set up?*
+  - *Do we need to integrate this into another component?*
+    * *can it be worked indepedently in storybook or mock data*
+  - *Do we need create an endpoint for this?*
+- API
+    - *How much is work going to go into creating this endpoint?*
+        * *Are there certain fields we need to set?*
+        * *What type of event will be published*
+   - *Do we need to update the schema*
+        
+## Breaking down epics into good user stories
+
+- Try to create user stories which are simple and will translate gracefully into views (the V in MVC)
+- With less technical words, focus on what the users will see as a result of their actions, then create a user story for each of those results, if they solve a problem
+- don't worry about actions that can result in a problem or nothing
+    * if the user searches for a car in our grocery surplus webshop, that's their problem for now
+    * later on, we might want to help them, by suggesting something they can actually buy here
+- easier to have a great and actionable discussion on small and simple user stories than epics
 
 ## Cross-cutting concerns
 
-# There are two main types of concerns in a software system (they can intersect too):
+There are two main types of concerns in a software system (they can intersect too):
   - Core concern: 
     * functionality fundamental to the system 
         * ex. the logic related to the calculation of employee salaries is core concerns of a HR system
@@ -195,7 +212,7 @@
         * artifact can be deployed to an artifact repository using the 'mvn deploy' command,
         * or it will be taken directly from the workspace directory
 
- ## UI PATTERN: VALIDATION FEEDBACK
+ ## UI Pattern: Validation Feedback
  
    - What:
     * ex. a warning or suggestion, an error preventing further progress until it’s been fixed, or confirmation that the data was complete and correct
