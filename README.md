@@ -19,7 +19,8 @@
 
 ## Estimating Effort - Complexity
 
- *This part seems straightforward, that part seems more complicated
+ **what are you most concerned about?**
+ **what seems more complicated?**
  
 - Obvious/simple/clear
     * Solution is evident to all
@@ -33,7 +34,22 @@
     * Requires creative/innovative approaches
     * Or too much complexity for us to solve it through analysis alone. Conduct spikes or POC to determine what might work
 
-## Potential Tradeoffs
+## INVEST - User Story
+
+- independent
+    * self-contained, testable separately (in storybook or with mock data)
+    * features can developed and delivered separately
+- negotiable
+    * capture the essence of the user story by negotiating what can be dropped
+- valuable
+    * what value does it bring to the user/business
+- estimable
+    * story is descriptive, accurate, and concise
+    * estimate best-case scenario, but add padding to handle anomolies
+- small
+    * can it be broken down without being too granular
+
+## Additional Concerns
 
 - Accuracy
     * is it testable (write test cases from the AC)
@@ -50,6 +66,8 @@
 - Testability
     * how can we test/demo this? Storybook
     * does it require technical acceptance
+- Reuseability
+    * should this a common component or module
 
 ## General Principles
 
