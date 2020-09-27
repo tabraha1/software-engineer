@@ -19,6 +19,8 @@
 
 ## Estimating Effort - Complexity
 
+ *This part seems straightforward, that part seems more complicated
+ 
 - Obvious/simple/clear
     * Solution is evident to all
 - Complicated
@@ -26,17 +28,28 @@
     * Range of right answers
     * Cause and effect are discoverable but not immediately apparent
     * Must asses the facts, apply good practice
-- * Complex
+- Complex
     * Represents "unknown knowns"
     * Requires creative/innovative approaches
     * Or too much complexity for us to solve it through analysis alone. Conduct spikes or POC to determine what might work
 
-## The Essence of Practice
+## Potential Tradeoffs
 
-- Understand the problem
-- Plan the solution
-- Carry out the plan
-- Examine the result
+- Accuracy
+    * is it testable (write test cases from the AC)
+    * is title, description, and AC clear and precise
+    * is it hiding additonal work
+    * do you understand the story enough to do it yourself
+- Atomic
+    * is it small
+    * how can we break this down further into smaller stories? Should we?
+- Dependencies
+    * does it require UX input
+    * does it require another team's input or component they own
+    * should be bring it up in the group discussion
+- Testability
+    * how can we test/demo this? Storybook
+    * does it require technical acceptance
 
 ## General Principles
 
