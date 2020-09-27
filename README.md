@@ -117,7 +117,31 @@
     - How:
         - The most straightforward way of caching information is in a single place in the application
       
+## Database Migrations
 
+- Any and all changes to a database schema must be codified in a series of “database migration” scripts. Migration files should be named and ordered by date.  
+- Database migrations should support both schema changes, as well as sample data insertion.
+- Running database migrations should be part of the project launch (via Make start, see below.) and must be enforced
+- Running database migrations must be automated and should be part for any build (integration, feature branch builds for PR etc.)
+- It should be possible to indicate which migrations run on which environments (or skip which ones) so that migrations that deal with sample data creation can be skipped in production, for example.
+- These rules apply to all data storage systems: relational, columnar, NoSQL…
+
+## Database Schemas
+
+- Database schema migration is a process of incremental changes to the relational database structure
+- The database in the version v1 has the schema defined by the V1_init.sql file. 
+- Additionally, it stores the metadata related to the migration process, 
+- for example, its current schema version and the migration changelog. 
+- When we want to update the schema, we provide the changes in the form of a SQL file, such as V2_add_table.sql. 
+- Then, we need to run the migration tool that executes the given SQL file on the database (it also updates the metatables). 
+- In effect, the database schema is a result of all subsequently executed SQL migration scripts. Next, we will see an example of a migration.
+
+- Tools and Strategies
+    * Upgrade and downgrade: 
+        - This approach, for example, used by the Ruby on Rails framework, means that we can migrate up (from v1 to v2) and down (from v2 to v1). It allows the database schema to roll back, which may sometimes end up in data loss (if the migration is logically irreversible)
+    * Upgrade only: 
+        - This approach, for example, used by the Flyway tool, only allows us to migrate up (from v1 to v2). In many cases, the database updates are not reversible, for example, removing a table from the database. Such a change cannot be rolled back because even if we recreate the table, we have already lost all the data.
+   
 ## Code reviews
 
 - UNDERSTANDABILITY
@@ -155,4 +179,7 @@
     * Watch for potential deadlocks or livelocks in algorithms.
     * Ensure that thread-pool configuration and caching is configured correctly.
     
-    
+   
+
+
+ 
