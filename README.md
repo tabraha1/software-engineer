@@ -153,6 +153,10 @@ There are two main types of concerns in a software system (they can intersect to
   - Cross-cutting concern: 
     * functionality that is used in multiple areas, possibly spanning multiple layers of the application
     * security, logging, caching, and error handling
+    
+  - an API gateway cross-cutting concerns, such as security and caching
+    * API gateway as a centralized, coordination layer between individual services and consumers
+    * gateway-level pre-authentication logic, caching, flow control and other cross cutting concerns
 
 1. Synchronous request
     - when a client makes a synchronous request, it waits for a response
@@ -271,3 +275,56 @@ There are two main types of concerns in a software system (they can intersect to
     * Google also blends autocomplete and autosuggest by letting you autocomplete the whole sentence using other noun phrases
     * showing additional results below the search input field (emphasizing the available autocomplete text with strong, bold text)
     *  Google’s autosuggest that proposes alternative queries that might be relevant: *“what is europe saying about brexit,”* that can be quite different from the text you’ve typed so far, “What is Brexit EU?”*
+    
+ ## Principle of Least Privilege
+
+- user, process—has access only to the information and resources that it needs to complete its task
+- limits damages in case of a breach.
+
+- A common example of PLP can be seen in the operating systems; as a user, you have a regular account for working with installed applications. When you want to do - something that requires higher privileges, such as installing an application, you see a prompt asking for higher privileges. This kind of manual privilege - escalation system makes it harder for attackers to execute malicious programs on victims’ machines.
+
+- We can also see PLP in web applications, where the server process doesn’t have read access outside the web application directory. This prevents attackers who somehow found a loophole in the server configuration from abusing it to read and modify other files on the server.
+
+- In reality, true PLP is practically impossible because it’s extremely difficult to determine all the resources that a program needs and at what point in time. However, even a moderate implementation of the concept increases application security by a great deal.
+
+- From our web application standpoint, we have the following rules:
+
+- The web application should not be run with root privileges. It should instead use a limited account that has access to only the required resources.
+
+- The database account should not be a root account. The account should have limited privileges over the database tables. We touch upon this in Chapter 5, ​Secure Your Database Interactions​.
+
+- The users of the web application should be given the minimum set of privileges they need.
+
+ ## UI Pipeline
+ 
+ Slow? Did we clean the workspace between builds. That way we don't have to redownload the depedencies every single time.
+ Right now (install nodule_modules 3 times):
+    - Downloads all the node_modules
+    - Runs the unit tests
+    - Does the Angular build
+    - Removes all the node_modules
+    - Installs only prod node_modules
+    - Builds docker image
+    - Deploys to dev
+    - Removes all node_modules again
+    - Reinstalls them again to run e2es
+    
+ Should do:
+    - Linting and unit test step in gitlab
+    - Can only merge in to master if that passes
+    - Build cleans directory between builds and keep dependecies
+    - e2es in different directory
+ 
+ Also:
+    - Cache everything for node_modules directory based on a generated NV-5 of the package.lock
+    - Branch that does global format and push it to package.lock so we generate NV-5
+    - If we didn't wipe out node_modules it would go faster, we would keep the compiled Angular stuff
+    - Cache in a jenkins pipeline cache
+        - Problem: But if you cache too much you'll run out of space
+        - Problem: Time to live issue - the time that an object is stored in a caching system before it's deleted or refreshed
+        - Solution: So do a cache based on the checksum of the package.lock, can reuse that cache between branches
+        
+    
+    
+    
+ 
