@@ -324,7 +324,31 @@ There are two main types of concerns in a software system (they can intersect to
         - Problem: Time to live issue - the time that an object is stored in a caching system before it's deleted or refreshed
         - Solution: So do a cache based on the checksum of the package.lock, can reuse that cache between branches
         
+## Kubernetes / Helm
+
+Helm
+- A Helm chart -> Kubernetes package
+- Charts contain the declarative Kubernetes resource files required to deploy an application.
+- Helm repositories provide widespread access to charts 
+- Chart developers create declarative YAML files, package them into charts, and publish them to chart repositories
+- End users use Helm to search existing charts to deploy onto Kubernetes
+
+Steps
+- Helm could be used to deploy Redis, an in-memory cache, to Kubernetes by using a chart published to an upstream repository. This could be performed using Helm's install command:
+- *helm install redis bitnami/redis --namespace=redis*
+
+- This installs the redis chart from the bitnami chart repository to a Kubernetes namespace called redis 
+- This installation would be referred to as the initial revision, or the initial deployment of a Helm chart
+
+- If a new version of the redis chart becomes available, users can upgrade to a new version using the upgrade command
+- This would upgrade Redis to meet the specification defined by the newer redis-ha chart
+- *helm upgrade redis bitnami/redis --namespace=redis*
     
-    
-    
+- Can have rollbacks if a bug or vulnerability is found
+- This command would roll Redis back to its first revision.
+- Helm provides the rollback command to handle this use case:
+- *helm rollback redis 1 --namespace=redis*
+
+- Helm provides the ability to remove Redis altogether with the uninstall command:
+- *helm uninstall redis --namespace=redis*
  
