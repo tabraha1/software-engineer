@@ -96,22 +96,31 @@
     * Skipping the conversation: 
         * if you skip the ac conversation, you move in  wrong direction, miss boundary cases, overlook customer needs
 
-## Grooming backlog
+## Grooming backlog (Jira)
 
+Move issues to the top:
    - making sure that high priority items are floated to the top and not getting buried
-   - important as you and your team approach the start of a new sprint
-   
    - newly added issues go to the bottom by default
-   - To prioritize issues in your backlog, you simply move the high priority issues up and move the low priority issues down
    - right-click the issue you want to move and select the Top of Backlog option
    - hold down the Shift or Ctrl key on your keyboard for multiple issues
-   
+Flag issues:
    - flag issues that are important or require special attention, which is done by right-clicking an issue and selecting the Add flag option
+Add labels:
    - display the labels that have been added to issues such as technical acceptance or tech debt
+UX links:
    - create custom hyperlinks for issues or UX specs
+Blocking and dups:
    - issue A might be blocking issue B, or issue C might be a duplicate of issue D
    - add descriptions to the issue to convey this information, or delete one of the issues in the case of duplication
+Cloning an issue:
    - When an issue is being cloned, a Clone link is automatically created between the two issues, establishing a relationship
+
+## Sprint Iteration Planning
+- List off sprint goals
+- Mention if the goal has stories carried over or haven’t started yet
+- Total points, # of points carryover, and # points that are accepted but not deployed, # of points in test
+- Confidence vote
+- They can ask What issues or concerns do you have with this feature?
 
 ## Defining Components
 
