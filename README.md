@@ -219,6 +219,17 @@ There are two main types of concerns in a software system (they can intersect to
 - It should be possible to indicate which migrations run on which environments (or skip which ones) so that migrations that deal with sample data creation can be skipped in production, for example.
 - These rules apply to all data storage systems: relational, columnar, NoSQL…
 
+Common Mistake:
+* Deploying app before pushing migration out first
+* Prevent this by:
+    * Smoke testing app
+    * Hitting alert site
+    * Have components that don't break entire app - graceful degradation
+    * Do it in deployment window (instead of late at night)
+* Solution:
+    * Deploy migration first (can even be done out of deployment window)
+    * Add column: make it null, deploy migration, add insert, deploy again, make it nonnullable deploy again
+
 ## Database Schemas
 
 - Database schema migration is a process of incremental changes to the relational database structure
