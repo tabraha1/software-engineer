@@ -253,6 +253,18 @@ There are two main types of concerns in a software system (they can intersect to
         * artifact can be deployed to an artifact repository using the 'mvn deploy' command,
         * or it will be taken directly from the workspace directory
 
+ ## How to do a Release:
+* Create stories:
+    * Last minute check story
+    * Release story
+    * Production Support story
+* If needed:
+    * Add extra logging
+    * Make sure feature flag exists in Production
+    * Remove feature flags (dead code) at the end of the PI
+    * Do a notification and smoke test it
+ 
+ 
  ## UI Pattern: Validation Feedback
  
    - What:
