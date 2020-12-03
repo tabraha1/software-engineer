@@ -248,6 +248,13 @@ Common Mistake:
     
 ## Building binaries
     
+   Two kinds of artifacts during the software development process: source code and binary artifacts as results of your build (JAR, WAR, and ZIP files).
+   
+   - Binary repositories like JFrog Artifactory and Sonatype Nexus are well suited for storing binary artifacts
+    * organize them, describe them with the help of metadata, and expose an interface (a user interface and/or API) to publish and download these artifacts
+    
+   - Once you package the delivery with a specific version, it’s ready to be deployed to various target environments for acceptance testing or to be given into the hands of the end user. It’s a good practice to build the artifact only once, deploy it to a binary repository, and reuse it whenever needed
+    
    - What:
         * the packaged enterprise application in form of an archive
         * includes required dependencies, compile Java sources, and packaged binary classes and other files
