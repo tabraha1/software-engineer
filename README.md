@@ -122,6 +122,42 @@ Cloning an issue:
 - Confidence vote
 - They can ask What issues or concerns do you have with this feature?
 
+## Java, so a good code review will look for these:
+
+- Use checked exceptions for recoverable conditions and runtime exceptions for programming errors.
+- Check parameters for validity as close to their specification or associated user input as possible.
+- Indicate which parameters can be null.
+- In public classes, use accessor methods, not public fields.
+- Refer to objects by their interfaces.
+- Use enums instead of int constants.
+- Use marker interfaces to define types.
+- Synchronize access to shared mutable data.
+- Prefer executors to tasks and threads.
+- Document thread safety.
+
+SECURITY
+
+The issue of security is of vital importance. Several common mistakes can be searched for during a code review:
+
+- Input into a system should be checked for valid data size and range, and always sanitize any input that will be supplied to a data store, middleware, or third-party system.
+- Do not log highly sensitive information.
+- Purge sensitive information from exceptions (e.g., do not expose file paths, internals of the system, or configuration).
+- Consider purging highly sensitive data from memory after use.
+- Follow the principle of least privilege (e.g., run an application with the least privilege mode required for the correct functioning).
+- Document security-related information.
+PERFORMANCE
+
+
+Code reviews can be a good tool for detecting obvious performance issues. Here are several example issues to be aware of:
+
+- Watch for inefficient algorithms (e.g., unnecessary multiple loops).
+- Avoid creating unnecessary objects.
+- Beware of the performance penalty of string concatenation.
+- Avoid excessive synchronization and keep synchonized blocks as small as practical.
+- Watch for potential deadlocks or livelocks in algorithms.
+- Ensure that thread-pool configu
+
+
 ## Defining Components
 
 - UI
