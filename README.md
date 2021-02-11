@@ -339,18 +339,6 @@ Common Mistake:
             * visitor proceeds with badly formatted phone number, but were prompted to check it twice for their own benefit
             * For example, consider this message: *Enter your phone number to help fast delivery of your order.*
     
-  ## UI Pattern: Autocomplete
-  
-  - Autocomplete:
-    * The autocomplete pattern automatically completes typed user input with matching results from a larger data set
-    * autocomplete lets your system match your visitor’s first few key strokes with possible solutions
-  - Autosuggestion:
-    * Similar to traditional “autocomplete,” “autosuggest” breaks beyond the input provided to suggest alternative, relevant answers
-    * It might even suggest results from multiple data sets
-    * Google also blends autocomplete and autosuggest by letting you autocomplete the whole sentence using other noun phrases
-    * showing additional results below the search input field (emphasizing the available autocomplete text with strong, bold text)
-    *  Google’s autosuggest that proposes alternative queries that might be relevant: *“what is europe saying about brexit,”* that can be quite different from the text you’ve typed so far, “What is Brexit EU?”*
-    
  ## Principle of Least Privilege
 
 - user, process—has access only to the information and resources that it needs to complete its task
